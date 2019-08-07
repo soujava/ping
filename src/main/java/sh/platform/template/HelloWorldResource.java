@@ -14,6 +14,9 @@ public class HelloWorldResource {
     @GET
     @Produces("text/plain")
     public String doGet() throws UnknownHostException {
-        return "hello from Platform.sh from IP:" + InetAddress.getLocalHost();
+        final InetAddress host = InetAddress.getLocalHost();
+        final String hostName = host.getHostName();
+        final String hostAddress = host.getHostAddress();
+        return "hello from Platform.sh from IP: " + hostAddress + " name: " + hostName;
     }
 }
